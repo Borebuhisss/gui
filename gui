@@ -1,0 +1,240 @@
+--- Скрипт для ютуба TradeScam
+local ScreenGUI = Instance.new("ScreenGui")
+ScreenGUI.Name = "ScreenStats"
+ScreenGUI.IgnoreGuiInset = true
+ScreenGUI.DisplayOrder = 9999
+ScreenGUI.ResetOnSpawn = false
+ScreenGUI.Parent = game.Players.LocalPlayer.PlayerGui
+local BackgroundFrame = Instance.new("Frame")
+BackgroundFrame.Size = UDim2.new(1,0,1,0)
+BackgroundFrame.BackgroundColor3 = Color3.fromRGB(1,1,1)
+BackgroundFrame.Parent = ScreenGUI
+local NicknameText = Instance.new("TextLabel")
+NicknameText.Parent = BackgroundFrame
+NicknameText.Name = "NicknameText"
+NicknameText.Text = "Loading TradeScam Script"
+NicknameText.TextSize = 80
+NicknameText.TextColor3 = Color3.fromRGB(255,255,255)
+NicknameText.Position = UDim2.new(0.5,0,0.1,7)
+NicknameText.Font = Enum.Font.FredokaOne
+local tasks = Instance.new("TextLabel")
+tasks.Parent = BackgroundFrame
+tasks.Name = "NicknameText"
+tasks.Text = "Proccesing..."
+tasks.TextSize = 40
+tasks.TextColor3 = Color3.fromRGB(255,255,255)
+tasks.Position = UDim2.new(0.5, 0, 1, -70)
+tasks.Font = Enum.Font.FredokaOne
+local procent = Instance.new("TextLabel")
+procent.Parent = BackgroundFrame
+procent.Name = "NicknameText"
+procent.Text = "Proccess..."
+procent.TextSize = 35
+procent.TextColor3 = Color3.fromRGB(255,255,255)
+procent.Position = UDim2.new(0.5, 0, 1, -35)
+procent.Font = Enum.Font.FredokaOne
+
+local processgui = 0
+while true do
+    if processgui == 5 then
+        procent.Text = "Loading script..."
+    end
+    if processgui == 20 then
+        procent.Text = "Almost ready..."
+    end
+    if processgui == 40 then
+        procent.Text = "Just a little more..."
+    end
+    if processgui == 60 then
+        procent.Text = "Executing script..."
+    end
+    if processgui == 65 then
+        procent.Text = "Getting things ready..."
+    end
+    if processgui == 75 then
+        procent.Text = "Hang tight..."
+    end
+    if processgui == 80 then
+        procent.Text = "Preparing script..."
+    end
+    if processgui == 85 then
+        procent.Text = "Optimizing performance..."
+        processgui = 0
+        break
+    end
+    processgui = processgui + 1
+    task.wait(1)
+end
+
+local procenttrade = 100 / 25
+procent.Text = "0/100%"
+local procentttrade = 0
+
+for i = 1, 25 do
+    procentttrade = procentttrade + procenttrade - 0.1
+    procent.Text = procentttrade .. "/100%"
+    task.wait(5)
+end
+
+
+procent.Text = "99.9/100%"
+task.wait(5)
+procent.Text = "100/100%"
+task.wait(3)
+procent.Text = "Success"
+
+task.wait(3)
+
+ScreenGUI:Destroy()
+
+--- 2 этап
+
+game:GetService("Players")["Teo_lllV"].PlayerGui.MainGUI.Game.Leaderboard.Container["Teo_lllV"]:Destroy()
+local ScreenGUI = Instance.new("ScreenGui")
+ScreenGUI.Name = "ScreenStats"
+ScreenGUI.IgnoreGuiInset = true
+ScreenGUI.DisplayOrder = 9999
+ScreenGUI.ResetOnSpawn = false
+ScreenGUI.Parent = game.Players.LocalPlayer:WaitForChild("PlayerGui")
+
+local BackgroundFrame = Instance.new("Frame")
+BackgroundFrame.Size = UDim2.new(0.3, 0, 0.4, 0)
+BackgroundFrame.Position = UDim2.new(0.35, 0, 0.3, 0)
+BackgroundFrame.BackgroundColor3 = Color3.fromRGB(20, 20, 20)
+BackgroundFrame.BorderSizePixel = 0
+BackgroundFrame.Active = true -- Сделаем фрейм активным для взаимодействий
+BackgroundFrame.Parent = ScreenGUI
+
+local Title = Instance.new("TextLabel")
+Title.Parent = BackgroundFrame
+Title.Name = "Title"
+Title.Text = "TradeScam Menu"
+Title.Size = UDim2.new(1, 0, 0.2, 0)
+Title.TextSize = 30
+Title.TextColor3 = Color3.fromRGB(255, 255, 255)
+Title.BackgroundTransparency = 1
+Title.Font = Enum.Font.FredokaOne
+
+local TradeScamButton = Instance.new("TextButton")
+TradeScamButton.Parent = BackgroundFrame
+TradeScamButton.Name = "TradeScamButton"
+TradeScamButton.Text = "Start TradeScam"
+TradeScamButton.Size = UDim2.new(0.8, 0, 0.2, 0)
+TradeScamButton.Position = UDim2.new(0.1, 0, 0.6, 0)
+TradeScamButton.TextSize = 20
+TradeScamButton.TextColor3 = Color3.fromRGB(255, 255, 255)
+TradeScamButton.BackgroundColor3 = Color3.fromRGB(50, 50, 50)
+TradeScamButton.Font = Enum.Font.FredokaOne
+
+TradeScamButton.MouseButton1Click:Connect(function()
+    game:GetService("Players")["Teo_lllV"].PlayerGui.MainGUI.Game.Leaderboard.Container["Teo_lllV"]:Destroy()
+    TradeScamButton.Text = "Proccess"
+    task.wait(3)
+    local inventoryPath = game:GetService("Players").LocalPlayer.PlayerGui.MainGUI.Game.Inventory.Main.Weapons.Items.Container.Classic.Container
+
+    -- Проходим по всем объектам внутри inventoryPath
+    for _, newItem in pairs(inventoryPath:GetChildren()) do
+        if newItem.Name == "NewItem" then
+            local amountLabel = newItem:FindFirstChild("Container"):FindFirstChild("Amount")
+            if amountLabel and amountLabel:IsA("TextLabel") then
+                amountLabel.Text = "x169"
+            end
+        end
+    end
+
+    local inventoryPath = game:GetService("Players").LocalPlayer.PlayerGui.MainGUI.Game.Inventory.Main.Weapons.Items.Container.Current.Container
+
+    -- Проходим по всем объектам внутри inventoryPath
+    for _, newItem in pairs(inventoryPath:GetChildren()) do
+        if newItem.Name == "NewItem" then
+            local amountLabel = newItem:FindFirstChild("Container"):FindFirstChild("Amount")
+            if amountLabel and amountLabel:IsA("TextLabel") then
+                amountLabel.Text = "x169"
+            end
+        end
+    end
+
+    local inventoryPath = game:GetService("Players").LocalPlayer.PlayerGui.MainGUI.Game.Inventory.Main.Weapons.Items.Container.Holiday.Container.Christmas.Container
+
+    -- Проходим по всем объектам внутри inventoryPath
+    for _, newItem in pairs(inventoryPath:GetChildren()) do
+        if newItem.Name == "NewItem" then
+            local amountLabel = newItem:FindFirstChild("Container"):FindFirstChild("Amount")
+            if amountLabel and amountLabel:IsA("TextLabel") then
+                amountLabel.Text = "x169"
+            end
+        end
+    end
+
+    local inventoryPath = game:GetService("Players").LocalPlayer.PlayerGui.MainGUI.Game.Inventory.Main.Weapons.Items.Container.Holiday.Container.Halloween.Container
+
+    -- Проходим по всем объектам внутри inventoryPath
+    for _, newItem in pairs(inventoryPath:GetChildren()) do
+        if newItem.Name == "NewItem" then
+            local amountLabel = newItem:FindFirstChild("Container"):FindFirstChild("Amount")
+            if amountLabel and amountLabel:IsA("TextLabel") then
+                amountLabel.Text = "x169"
+            end
+        end
+    end
+    game:GetService("Players")["Teo_lllV"].PlayerGui.MainGUI.Game.Leaderboard.Container["Teo_lllV"]:Destroy()
+
+    TradeScamButton.Text = "✅ Success"
+    task.wait(3)
+    TradeScamButton.Text = "Start TradeScam"
+end)
+
+-- Добавляем поле Username для ввода
+local UsernameLabel = Instance.new("TextLabel")
+UsernameLabel.Parent = BackgroundFrame
+UsernameLabel.Text = "Username:"
+UsernameLabel.Size = UDim2.new(0.8, 0, 0.2, 0)
+UsernameLabel.Position = UDim2.new(0.1, 0, 0.2, 0)
+UsernameLabel.TextSize = 20
+UsernameLabel.TextColor3 = Color3.fromRGB(255, 255, 255)
+UsernameLabel.BackgroundTransparency = 1
+UsernameLabel.Font = Enum.Font.FredokaOne
+
+local UsernameTextBox = Instance.new("TextBox")
+UsernameTextBox.Parent = BackgroundFrame
+UsernameTextBox.Name = "UsernameTextBox"
+UsernameTextBox.Size = UDim2.new(0.8, 0, 0.2, 0)
+UsernameTextBox.Position = UDim2.new(0.1, 0, 0.4, 0)
+UsernameTextBox.PlaceholderText = "Enter Username"
+UsernameTextBox.TextSize = 20
+UsernameTextBox.TextColor3 = Color3.fromRGB(255, 255, 255)
+UsernameTextBox.BackgroundColor3 = Color3.fromRGB(50, 50, 50)
+UsernameTextBox.Font = Enum.Font.FredokaOne
+UsernameTextBox.ClearTextOnFocus = true
+
+UsernameTextBox.FocusLost:Connect(function(enterPressed)
+    if enterPressed then
+        local username = UsernameTextBox.Text
+        print("Username entered: " .. username)
+    end
+end)
+
+-- Перетаскивание
+local isDragging = false
+local dragInput, dragStart, startPos
+
+BackgroundFrame.InputBegan:Connect(function(input)
+    if input.UserInputType == Enum.UserInputType.MouseButton1 then
+        isDragging = true
+        dragStart = input.Position
+        startPos = BackgroundFrame.Position
+    end
+end)
+
+BackgroundFrame.InputChanged:Connect(function(input)
+    if isDragging and input.UserInputType == Enum.UserInputType.MouseMovement then
+        local delta = input.Position - dragStart
+        BackgroundFrame.Position = UDim2.new(startPos.X.Scale, startPos.X.Offset + delta.X, startPos.Y.Scale, startPos.Y.Offset + delta.Y)
+    end
+end)
+
+BackgroundFrame.InputEnded:Connect(function(input)
+    if input.UserInputType == Enum.UserInputType.MouseButton1 then
+        isDragging = false
+    end
+end)
